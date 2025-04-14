@@ -6,28 +6,33 @@ body{
      background-color: azure;
 
 }
+header{
+    height: 15vh;
+    background-color: rgb(178, 212, 241);
+    position:sticky;
+    margin: 10px;
+}
 
 #main{
     border: 1px solid grey;
     border-radius: 20px;
     margin: auto;
-    position: relative;
-    top: 150px;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     width: 300px;
     height: 300px;
     line-height:2;
-    background:linear-gradient(to bottom,  rgb(194, 178, 241), white); 
+    background:linear-gradient(to bottom, rgb(178, 212, 241),white); 
 
    
 }
 button{
-    border: 1px solid green;
+    border: 1px solid rgb(103, 180, 247);
     margin: 10px;
     border-radius: 10px;
     padding: 5px;
-    background-color: green;
+    background-color: rgb(103, 180, 247);
 }
 
 #signup{

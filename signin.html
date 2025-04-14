@@ -9,38 +9,42 @@
 </head>
 
 <body>
-    
- <div id="main">
+    <header>
+
+    </header>
+
+    <div id="main">
+        <h3><u>SignIn Form</u></h3>
         <form action="" onsubmit="handleSigninDetails(event)">
-            <h3><u>SignIn Form</u></h3>
-        <div id="signin">
-            <label for="signinemail">Email</label>
-            <input id="signinemail" type="email" placeholder="Enter Email">
-            <label for="signinpassword">Password</label>
-            <input type="password" name="" id="signinpassword" placeholder="Enter password">
-            <button type="submit" >SignIn</button>
-        </div>
-        <div id="signup">
-            <p>Already have account <a href="./signup.html">Signup</a></p>
-        </div>
+            <div id="signin">
+                <label for="signinemail" >Email</label>
+                <input id="signinemail" type="email" placeholder="Enter Email" required>
+                <label for="signinpassword" >Password</label>
+                <input type="password" name="" id="signinpassword" placeholder="Enter password"required>
+                <button type="submit">SignIn</button>
+            </div>
+            <div id="signup">
+                <p>Already have account <a href="./signup.html">Signup</a></p>
+            </div>
         </form>
-    </div> 
-     <script>
+    </div>
+    <script>
         function handleSigninDetails(e) {
             e.preventDefault()
-            let signinEmail= document.getElementById("signinemail").value.trim();
+            let signinEmail = document.getElementById("signinemail").value.trim();
             let signinPassword = document.getElementById("signinpassword").value.trim();
 
             let allUsers = JSON.parse(localStorage.getItem("allUsers")) || [];
-            const userFound = allUsers.find(x => x.email === signinEmail && x.password===signinPassword);
+            const userFound = allUsers.find(x => x.email === signinEmail && x.password === signinPassword);
+            console.log(userFound, "userFound")
             if (userFound) {
                 alert("logged in succesfully")
-                localStorage.setItem("LoggedInUser",JSON.stringify(userFound.email));
+                localStorage.setItem("LoggedInUser", JSON.stringify(userFound.email));
                 window.location.href = 'dashboard.html';
             }
 
         }
 
-    </script> 
+    </script>
 
 </html>
