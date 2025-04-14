@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/signin.css">
+</head>
+
+<body>
+    
+ <div id="main">
+        <form action="" onsubmit="handleSigninDetails(event)">
+            <h3><u>SignIn Form</u></h3>
+        <div id="signin">
+            <label for="signinemail">Email</label>
+            <input id="signinemail" type="email" placeholder="Enter Email">
+            <label for="signinpassword">Password</label>
+            <input type="password" name="" id="signinpassword" placeholder="Enter password">
+            <button type="submit" >SignIn</button>
+        </div>
+        <div id="signup">
+            <p>Already have account <a href="./signup.html">Signup</a></p>
+        </div>
+        </form>
+    </div> 
+     <script>
+        function handleSigninDetails(e) {
+            e.preventDefault()
+            let signinEmail= document.getElementById("signinemail").value.trim();
+            let signinPassword = document.getElementById("signinpassword").value.trim();
+
+            let allUsers = JSON.parse(localStorage.getItem("allUsers")) || [];
+            const userFound = allUsers.find(x => x.email === signinEmail && x.password===signinPassword);
+            if (userFound) {
+                alert("logged in succesfully")
+                localStorage.setItem("LoggedInUser",JSON.stringify(userFound.email));
+                window.location.href = 'dashboard.html';
+            }
+
+        }
+
+    </script> 
+
+</html>
